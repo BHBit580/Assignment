@@ -1,11 +1,6 @@
-using System;
-using System.Collections;
 using System.Collections.Generic;
-using Newtonsoft.Json;
 using TMPro;
-using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.Networking;
 using UnityEngine.UI;
 
 public class FilterOptions : MonoBehaviour
@@ -13,22 +8,23 @@ public class FilterOptions : MonoBehaviour
     [SerializeField] private Transform entryContainer;
     [SerializeField] private Transform entryTemplate;
     [SerializeField] private TMP_Dropdown filterDropdown;
+    [SerializeField] private GameObject fixedAsset;
     [SerializeField] private GameObject infoPopUp;
 
     [SerializeField] private float templateHeight = 20f;
-    
-    private ClientDataContainer clientDataContainer;
-
     
     [Header("InfoPopUpDisplayText")] 
     [SerializeField] private TextMeshProUGUI popUpNameText;
     [SerializeField] private TextMeshProUGUI popUpPointsText;
     [SerializeField] private TextMeshProUGUI popUpAddressText;
     
+    
+    private ClientDataContainer clientDataContainer;
+    
     private void Start()
     {
-        clientDataContainer = GameManager.clientDataContainer;
-        DisplayClients(clientDataContainer.clients);
+        clientDataContainer = GameManager.clientDataContainer;                            //Getting clientdatacontainer from game manager
+        DisplayClients(clientDataContainer.clients);                            
         filterDropdown.onValueChanged.AddListener(OnDropdownValueChanged);
     }
     
@@ -54,9 +50,10 @@ public class FilterOptions : MonoBehaviour
         DestroyPreviousDisplay();
         
         float yOffset = 0;
+        
         foreach (var client in clientsToDisplay)
         {
-            Transform entryTransform = Instantiate(entryTemplate, entryContainer);
+            Transform entryTransform = Instantiate(entryTemplate, entryContainer);                  //Text Instantation
             RectTransform entryRectTransform = entryTransform.GetComponent<RectTransform>();
             entryRectTransform.anchoredPosition = new Vector2(0, -yOffset);
 
@@ -68,8 +65,8 @@ public class FilterOptions : MonoBehaviour
 
             label.text = client.label;
             
-            if (clientDataContainer.data.TryGetValue(client.id.ToString() , out ClientData value))
-            {
+            if (clientDataContainer.data.TryGetValue(client.id.ToString() , out ClientData value))            //Checking if value dictionary 
+            {                                                                                                 // info valid
                 ClientData clientData = clientDataContainer.data[client.id.ToString()];
                 points.text = clientData.points.ToString();
             }
@@ -80,7 +77,7 @@ public class FilterOptions : MonoBehaviour
             
            label.GetComponentInParent<Button>().onClick.AddListener(() => PopUpWindow(client.id));
 
-            yOffset += templateHeight;
+            yOffset += templateHeight;                                                    //Adding distance between the rows 
 
         }
     }
@@ -114,6 +111,7 @@ public class FilterOptions : MonoBehaviour
         }
         
         infoPopUp.SetActive(true);
+        fixedAsset.SetActive(false);
     }
 
 }

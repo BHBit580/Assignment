@@ -93,8 +93,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 45
-  m_fontSizeBase: 45
+  m_fontSize: 22
+  m_fontSizeBase: 22
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -172,8 +172,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -203.41684, y: 320}
-  m_SizeDelta: {x: 243.3663, y: 72.165}
+  m_AnchoredPosition: {x: -189.5, y: 330.88}
+  m_SizeDelta: {x: 103.5309, y: 28.2414}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8189235211093161439
 CanvasRenderer:
@@ -267,7 +267,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3987911013044101542}
   m_Layer: 5
-  m_Name: HighScoreTemplate
+  m_Name: DataTableTemplate
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -330,8 +330,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 302.11276, y: 320}
-  m_SizeDelta: {x: 310.4257, y: 52}
+  m_AnchoredPosition: {x: 249, y: 319}
+  m_SizeDelta: {x: 335.0022, y: 52}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &534910264143530399
 CanvasRenderer:
@@ -388,8 +388,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 45
-  m_fontSizeBase: 45
+  m_fontSize: 22
+  m_fontSizeBase: 22
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
